@@ -5,17 +5,22 @@ package Unit5_Writing_Classes;
 public class Circle {
     private int radius; // can't access to this field at anywhere outside the Circle class (declaring class)
 
+    private static int count = 0; // count how many circles created
+
     // able to access from anywhere
     public Circle() {
         radius = 5;
+        count++;
     }
 
     public Circle(int radius) {
         this.radius = radius;
+        count++;
     }
 
     public Circle(Circle circle) {
         radius = circle.radius;
+        count++;
     }
 
     // can't access private field as the parameter ${circle}
@@ -42,7 +47,17 @@ public class Circle {
         this.radius = radius;
     }
 
+    public static int getCount() {
+        return count;
+    }
+
+    public static void setCount(int count) {
+        Circle.count = count;
+    }
+
     public int sumOfTwoCircles(Circle circle) {
+        int radius = 3;
+        System.out.println(radius); // this refers the local variable instead of instance variable
         return this.radius + circle.radius;
     }
 
@@ -52,6 +67,11 @@ public class Circle {
                 "radius=" + radius +
                 '}';
     }
+
+    // static method
+//    public static int tryToGetRadius() {
+//        return radius;
+//    }
 
     public static void main(String[] args) {
         Circle c = new Circle();
@@ -63,5 +83,11 @@ public class Circle {
 
         Circle c2 = new Circle(3);
         System.out.println("sum: " + c.sumOfTwoCircles(c2));
+
+        System.out.println("number of circles: " + getCount());
+
+        // Local variable
+        int radius = 9;
+        System.out.println(radius);
     }
 }

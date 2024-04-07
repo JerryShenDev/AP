@@ -16,20 +16,14 @@ public class PassByValueAndReference {
 
     // HW: try immutable object example
     // ...
-
-    public class ImmutableCircle {
-    private double radius;
-
-    public ImmutableCircle(double radius) {
-        this.radius = radius;
+    public void passByReferenceImmutable(String str) {
+        System.out.println("inner value before: " + str);
+        str = str + " New String";
+        System.out.println("inner value after: " + str);
     }
 
-    public double getRadius() {
-        return radius;
-    }
-
-    public ImmutableCircle withRadius(double newRadius) {
-        return new ImmutableCircle(newRadius);
+    public static void printSomething() {
+        System.out.println("This is Static Field");
     }
 
     public static void main(String[] args) {
@@ -54,10 +48,13 @@ public class PassByValueAndReference {
         System.out.println("-------------");
         // Testing for immutable object
         // ...
-        ImmutableCircle immutableCircle = new ImmutableCircle(5);
-        System.out.println("outer value before: " + immutableCircle);
+        String str = "Hello";
+        System.out.println("outer value before: " + str);
 
-        ImmutableCircle newCircle = immutableCircle.withRadius(10);
-        System.out.println("outer value after: " + newCircle);
+        obj.passByReferenceImmutable(str);
+
+        System.out.println("outer value after: " + str);
+
+        printSomething();
     }
 }
