@@ -1,13 +1,17 @@
 package Unit7_ArrayList;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Algorithms {
     // Method 1 (append to the end):
-    public static int sum(){
+    public static int sum() {
         return 5;
     }
+
     public static int[] append(int[] intArray, int newVal) {
         int[] newArray = new int[intArray.length + 1];
-        for (int i = 0; i < intArray.length; i++){
+        for (int i = 0; i < intArray.length; i++) {
             newArray[i] = intArray[i];
         }
         newArray[newArray.length - 1] = newVal;
@@ -15,16 +19,16 @@ public class Algorithms {
     }
 
     // Method 2 (append to any position):
-    public static int[] insertAt(int[] intArray, int newVal, int pos){
+    public static int[] insertAt(int[] intArray, int newVal, int pos) {
         int[] newArray = new int[intArray.length + 1];
         for (int i = pos; i < intArray.length; i++) {
-        newArray[i + 1] = intArray[i];
-    }
+            newArray[i + 1] = intArray[i];
+        }
         newArray[pos] = newVal;
 
-//        for (int i = pos + 1; i < newArray.length; i++){
-//            newArray[i] = intArray[i - 1];
-//        }
+        for (int i = pos + 1; i < newArray.length; i++) {
+            newArray[i] = intArray[i - 1];
+        }
 
         return newArray;
 //        int[] newArray = new int[intArray.length + 1];
@@ -39,36 +43,86 @@ public class Algorithms {
 //        }
 //        return newArray;
     }
+
     // Method 3 (remove from the begin):
     public static int[] removeFromStart(int[] intArray) {
-    int[] newArray = new int[intArray.length - 1];
-    for (int i = 1; i < intArray.length; i++) {
-        newArray[i - 1] = intArray[i];
+        int[] newArray = new int[intArray.length - 1];
+        for (int i = 1; i < intArray.length; i++) {
+            newArray[i - 1] = intArray[i];
+        }
+        return newArray;
     }
-    return newArray;
-}
+
+    public static int[] appendUsingArrayList(int[] intArray, int newVal) {
+        // convert int[] -> List<Integer>
+        List<Integer> integerList = new ArrayList<>();
+        for (int val : intArray) {
+            integerList.add(val);
+        }
+
+        // operation
+        integerList.add(newVal);
+
+        // convert List<Integer> -> int[]
+        int[] newArray = new int[integerList.size()];
+        for (int i = 0; i < integerList.size(); i++) {
+            newArray[i] = integerList.get(i);
+        }
+        return newArray;
+    }
+
+    public static int[] insertUsingArrayList(int[] intArray, int newVal, int pos) {
+        List<Integer> integerList = new ArrayList<>();
+        for (int val : intArray) {
+            integerList.add(val);
+        }
+
+        integerList.add(pos, newVal);
+
+        int[] newArray = new int[integerList.size()];
+        for (int i = 0; i < integerList.size(); i++) {
+            newArray[i] = integerList.get(i);
+        }
+        return newArray;
+    }
+
+    public static int[] removeFromStartUsingArrayList(int[] intArray) {
+        List<Integer> integerList = new ArrayList<>();
+        for (int val : intArray) {
+            integerList.add(val);
+        }
+
+        integerList.remove(0);
+
+        int[] newArray = new int[integerList.size()];
+        for (int i = 0; i < integerList.size(); i++) {
+            newArray[i] = integerList.get(i);
+        }
+        return newArray;
+    }
+
     public static void main(String[] args) {
         // https://stackoverflow.com/questions/12757841/are-arrays-passed-by-value-or-passed-by-reference-in-java
         // Method 1 test:
         int[] intArray = new int[4];
         int newVal = 5;
         intArray = append(intArray, newVal);
-        for (int i = 0; i < intArray.length; i ++) {
+        for (int i = 0; i < intArray.length; i++) {
             System.out.print(intArray[i] + " ");
         }
         System.out.println();
         // [0, 0, 0, 0, 5]
 
         // Method 2 test:
-        intArray = insertAt(intArray, 3, 2);
-        for (int i = 0; i < intArray.length; i ++) {
+        intArray = insertUsingArrayList(intArray, 3, 2);
+        for (int i = 0; i < intArray.length; i++) {
             System.out.print(intArray[i] + " ");
         }
         System.out.println();
         // Method 3 test:
-         intArray = removeFromStart(intArray);
+        intArray = removeFromStart(intArray);
         for (int i = 0; i < intArray.length; i++) {
-        System.out.print(intArray[i] + " ");
+            System.out.print(intArray[i] + " ");
         }
         System.out.println();
     }
