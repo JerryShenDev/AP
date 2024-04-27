@@ -1,5 +1,7 @@
 package Unit3_4;
 
+import Unit9_Inheritance.Employee;
+
 public class Practice {
     public static void main(String[] args) {
         // while loop

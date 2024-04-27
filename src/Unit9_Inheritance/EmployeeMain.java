@@ -17,5 +17,7 @@ public class EmployeeMain {
         employee.printMessage();
         programmer.printMessage();
         manager.printMessage();
+
+        // protected: https://www.geeksforgeeks.org/protected-keyword-in-java-with-examples/
     }
 }

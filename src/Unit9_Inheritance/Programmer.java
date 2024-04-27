@@ -18,8 +18,8 @@ public class Programmer extends Employee {
         this.bonus = bonus;
     }
 
-    @Override
     public void printMessage() {
-        System.out.println("I'm a programmer.");
+        System.out.print("I'm a programmer.\t");
+        super.printMessage();
     }
 }
