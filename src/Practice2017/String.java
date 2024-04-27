@@ -18,4 +18,11 @@ public class String {
     st = chk;
     }
     return st;
+    int st = currentPhrase.length()-str.length;
+    while(st > = 0){
+        int pos = findNthOccurence (str, st);
+        if( pos!= -1) return pos;
+        st = st - 1;
+    }
+    return -1;
 }
