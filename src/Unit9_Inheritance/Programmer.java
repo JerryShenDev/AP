@@ -22,4 +22,7 @@ public class Programmer extends Employee {
         System.out.print("I'm a programmer.\t");
         super.printMessage();
     }
+
+    // Interface:
+    // https://www.geeksforgeeks.org/interfaces-in-java/
 }
