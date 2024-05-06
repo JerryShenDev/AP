@@ -7,6 +7,5 @@ public class CircleMain {
         System.out.println(c.getRadius());
 
         // String: ctrl + left click, you can see the source code with documentation
-        
     }
 }

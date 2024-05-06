@@ -15,6 +15,10 @@ public class Circle {
         this.radius = (double) radius;
     }
 
+    public Circle(Unit5_Writing_Classes.Circle circle) {
+        radius = circle.getRadius();
+    }
+
     public void printRadius() {
         System.out.println(radius);
     }

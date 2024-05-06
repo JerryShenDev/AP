@@ -19,5 +19,12 @@ public class EmployeeMain {
         manager.printMessage();
 
         // protected: https://www.geeksforgeeks.org/protected-keyword-in-java-with-examples/
+
+
+        // static && non-static
+        Employee e1 = new Employee(500);
+        Employee e2 = new Employee(300);
+        int result = Employee.compare(e1, e2);
+        result = e1.compareWith(e2);
     }
 }

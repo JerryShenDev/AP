@@ -25,6 +25,29 @@ public class Employee {
         System.out.println("I'm an employee.");
     }
 
+    public static int compare(Employee e1, Employee e2) {
+        if (e1.salary > e2.salary) {
+            return 1;
+        } else if (e1.salary < e2.salary) {
+            return -1;
+        }
+        return 0;
+    }
+
+    // can't get two employees
+//    public static int compareWith(Employee e) {}
+
+    // have 3 employees in total
+//    public int compareWith(Employee e1, Employee e2) {}
+    public int compareWith(Employee e) {
+        if (this.salary > e.salary) {
+            return 1;
+        } else if (salary < e.salary) {
+            return -1;
+        }
+        return 0;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -36,5 +59,12 @@ public class Employee {
     @Override
     public int hashCode() {
         return Objects.hash(salary);
+    }
+
+    public static void main(String[] args) {
+        // static && non-static
+        Employee e1 = new Employee(500);
+        Employee e2 = new Employee(300);
+        int result = compare(e1, e2); // 'Employee.' is optional
     }
 }

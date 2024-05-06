@@ -9,7 +9,7 @@ public class Circle {
 
     // able to access from anywhere
     public Circle() {
-        radius = 5;
+        this.radius = 5;
         count++;
     }
 
@@ -19,8 +19,12 @@ public class Circle {
     }
 
     public Circle(Circle circle) {
-        radius = circle.radius;
+        this.radius = circle.radius;
         count++;
+    }
+
+    public Circle(Unit2_Objects.Circle circle) {
+        this.radius = (int) circle.getRadius();
     }
 
     // can't access private field as the parameter ${circle}
